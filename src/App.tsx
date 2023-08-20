@@ -6,6 +6,9 @@ import {Footer} from "./Monday/1/Footer";
 import {MethodMap} from "./Monday/1/Map/Map";
 import {Button} from "./Monday/1/Button/Button";
 
+type ButtonType = "plus" | "minus" | "null";
+
+
 const topCars = [
     {manufacturer: 'BMW', model: 'm5cs'},
     {manufacturer: 'Mercedes', model: 'e63s'},
@@ -51,14 +54,16 @@ function App() {
         console.log("I'm stupid button")
     }
 
-    const onClickHandlerPlus = () => {
-        setCount(++count);
-    }
-    const onClickHandlerMinus = () => {
-        setCount(--count)
-    }
-    const onClickHandlerNull = () => {
-        setCount(0)
+    const onClickHandler = (click: ButtonType) => {
+        if (click === "plus") {
+            setCount(++count)
+        }
+        if (click === "minus") {
+            setCount(--count)
+        }
+        if (click === "null") {
+            setCount(0)
+        }
     }
 
     return (
@@ -70,10 +75,10 @@ function App() {
             {/*<Button nameButton={"My first button"} callBack={() => FirstButton("My first button", 37)}/>*/}
             {/*<Button nameButton={"My second button"} callBack={() => SecondButton("My second button")}/>*/}
             {/*<Button nameButton={"Stupid button"} callBack={StupidButton}/>*/}
-            <button onClick={onClickHandlerPlus}>+</button>
+            <button onClick={() => onClickHandler("plus")}>+</button>
             <h1>{count}</h1>
-            <button onClick={onClickHandlerMinus}>-</button>
-            <button onClick={onClickHandlerNull}>0</button>
+            <button onClick={() => onClickHandler("minus")}>-</button>
+            <button onClick={() => onClickHandler("null")}>0</button>
         </>
     );
 }

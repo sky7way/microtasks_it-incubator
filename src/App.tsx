@@ -7,9 +7,9 @@ import {MethodMap} from "./Monday/1/Map/Map";
 import {Button} from "./Monday/1/Button/Button";
 
 const topCars = [
-    {manufacturer:'BMW', model:'m5cs'},
-    {manufacturer:'Mercedes', model:'e63s'},
-    {manufacturer:'Audi', model:'rs6'}
+    {manufacturer: 'BMW', model: 'm5cs'},
+    {manufacturer: 'Mercedes', model: 'e63s'},
+    {manufacturer: 'Audi', model: 'rs6'}
 ]
 
 const students = [
@@ -26,18 +26,20 @@ const students = [
     {id: 11, name: "Christopher", age: 100},
 ]
 
-const [money, setMoney] = useState([
-    { banknots: 'Dollars', value: 100, number: ' a1234567890' },
-    { banknots: 'Dollars', value: 50, number: ' z1234567890' },
-    { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
-    { banknots: 'Dollars', value: 100, number: ' e1234567890' },
-    { banknots: 'Dollars', value: 50, number: ' c1234567890' },
-    { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
-    { banknots: 'Dollars', value: 50, number: ' x1234567890' },
-    { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
-])
+// const [money, setMoney] = useState([
+//     {banknots: 'Dollars', value: 100, number: ' a1234567890'},
+//     {banknots: 'Dollars', value: 50, number: ' z1234567890'},
+//     {banknots: 'RUBLS', value: 100, number: ' w1234567890'},
+//     {banknots: 'Dollars', value: 100, number: ' e1234567890'},
+//     {banknots: 'Dollars', value: 50, number: ' c1234567890'},
+//     {banknots: 'RUBLS', value: 100, number: ' r1234567890'},
+//     {banknots: 'Dollars', value: 50, number: ' x1234567890'},
+//     {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
+// ])
 
 function App() {
+
+    let [count, setCount] = useState(0)
     const FirstButton = (sub: string, age: number) => {
         console.log(sub, age)
     }
@@ -49,6 +51,16 @@ function App() {
         console.log("I'm stupid button")
     }
 
+    const onClickHandlerPlus = () => {
+        setCount(++count);
+    }
+    const onClickHandlerMinus = () => {
+        setCount(--count)
+    }
+    const onClickHandlerNull = () => {
+        setCount(0)
+    }
+
     return (
         <>
             {/*<Header titleForHeader={"New Header"}/>*/}
@@ -58,7 +70,10 @@ function App() {
             {/*<Button nameButton={"My first button"} callBack={() => FirstButton("My first button", 37)}/>*/}
             {/*<Button nameButton={"My second button"} callBack={() => SecondButton("My second button")}/>*/}
             {/*<Button nameButton={"Stupid button"} callBack={StupidButton}/>*/}
-            
+            <button onClick={onClickHandlerPlus}>+</button>
+            <h1>{count}</h1>
+            <button onClick={onClickHandlerMinus}>-</button>
+            <button onClick={onClickHandlerNull}>0</button>
         </>
     );
 }

@@ -5,8 +5,9 @@ import {Body} from "./Monday/1/Body";
 import {Footer} from "./Monday/1/Footer";
 import {MethodMap} from "./Monday/1/Map/Map";
 import {Button} from "./Monday/1/Button/Button";
+import {CountButton} from "./Monday/UseState/CountButton";
 
-type ButtonType = "plus" | "minus" | "null";
+export type ButtonType = "plus" | "minus" | "null";
 
 
 const topCars = [
@@ -43,16 +44,16 @@ const students = [
 function App() {
 
     let [count, setCount] = useState(0)
-    const FirstButton = (sub: string, age: number) => {
-        console.log(sub, age)
-    }
-    const SecondButton = (sub: string) => {
-        console.log(sub)
-    }
-
-    const StupidButton = () => {
-        console.log("I'm stupid button")
-    }
+    // const FirstButton = (sub: string, age: number) => {
+    //     console.log(sub, age)
+    // }
+    // const SecondButton = (sub: string) => {
+    //     console.log(sub)
+    // }
+    //
+    // const StupidButton = () => {
+    //     console.log("I'm stupid button")
+    // }
 
     const onClickHandler = (click: ButtonType) => {
         if (click === "plus") {
@@ -75,10 +76,10 @@ function App() {
             {/*<Button nameButton={"My first button"} callBack={() => FirstButton("My first button", 37)}/>*/}
             {/*<Button nameButton={"My second button"} callBack={() => SecondButton("My second button")}/>*/}
             {/*<Button nameButton={"Stupid button"} callBack={StupidButton}/>*/}
-            <button onClick={() => onClickHandler("plus")}>+</button>
             <h1>{count}</h1>
-            <button onClick={() => onClickHandler("minus")}>-</button>
-            <button onClick={() => onClickHandler("null")}>0</button>
+            <CountButton nameButton={"+"} callBack={() => onClickHandler("plus")}/>
+            <CountButton nameButton={"-"} callBack={() => onClickHandler("minus")}/>
+            <CountButton nameButton={"0"} callBack={() => onClickHandler("null")}/>
         </>
     );
 }

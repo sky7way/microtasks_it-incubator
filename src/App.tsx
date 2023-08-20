@@ -48,6 +48,8 @@ function App() {
         {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
     ])
 
+    const [filter, setFilter] = useState<MoneyType>('All')
+
     // const FirstButton = (sub: string, age: number) => {
     //     console.log(sub, age)
     // }
@@ -70,9 +72,12 @@ function App() {
     //         setCount(0)
     //     }
     // }
+    let currentMoney = money;
+    if(filter === 'Dollars') currentMoney = money.filter(el => el.banknots !== 'Dollars');
+    if(filter === 'RUBLS') currentMoney = money.filter(el => el.banknots !== 'RUBLS');
 
-    const filterMoney = () => {
-
+    const filterMoney = (cur: MoneyType) => {
+       return  setFilter(cur);
     }
 
     return (
@@ -92,10 +97,10 @@ function App() {
             {/*<CountButton nameButton={"-"} callBack={() => onClickHandler("minus")}/>*/}
             {/*<CountButton nameButton={"0"} callBack={() => onClickHandler("null")}/>*/}
 
-            <Money money={money}/>
-            <FilterMoney nameButton={'Dollars'}/>
-            <FilterMoney nameButton={'RUBLS'}/>
-            <FilterMoney nameButton={'All'}/>
+            <Money money={currentMoney}/>
+            <FilterMoney nameButton={'Dollars'} filter={() =>filterMoney('RUBLS')}/>
+            <FilterMoney nameButton={'RUBLS'} filter={() => filterMoney('Dollars')}/>
+            <FilterMoney nameButton={'All'} filter={() => filterMoney('All')}/>
 
         </>
     );

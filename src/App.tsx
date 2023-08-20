@@ -28,23 +28,11 @@ const students = [
 
 
 function App() {
-    const myFirstSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
-        console.log("Hi, men!")
+    const FirstButton = () => {
+        console.log("My first button")
     }
-    const meSecondSubscriber = (event: MouseEvent<HTMLButtonElement>) => {
-        console.log("Yo!")
-    }
-
-    const onClickHandler = (name: string)=> {
-        console.log(name)
-    }
-
-    const foo1 = (event: MouseEvent<HTMLButtonElement>) => {
-        console.log(100200)
-    }
-
-    const foo2 = (num: number) => {
-        console.log(num)
+    const SecondButton = () => {
+        console.log("My second button")
     }
 
     return (
@@ -53,7 +41,8 @@ function App() {
             <Body titleForBody={"New Body"}/>
             <Footer titleForFooter={"New Footer"}/>
             <MethodMap students={students} cars={topCars}/>
-            <Button/>
+            <Button nameButton={"My first button"} callBack={FirstButton}/>
+            <Button nameButton={"My second button"} callBack={SecondButton}/>
         </>
     );
 }

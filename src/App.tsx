@@ -28,11 +28,11 @@ const students = [
 
 
 function App() {
-    const FirstButton = () => {
-        console.log("My first button")
+    const FirstButton = (sub: string, age: number) => {
+        console.log(sub, age)
     }
-    const SecondButton = () => {
-        console.log("My second button")
+    const SecondButton = (sub: string) => {
+        console.log(sub)
     }
 
     return (
@@ -41,8 +41,8 @@ function App() {
             <Body titleForBody={"New Body"}/>
             <Footer titleForFooter={"New Footer"}/>
             <MethodMap students={students} cars={topCars}/>
-            <Button nameButton={"My first button"} callBack={FirstButton}/>
-            <Button nameButton={"My second button"} callBack={SecondButton}/>
+            <Button nameButton={"My first button"} callBack={() => FirstButton("My first button", 37)}/>
+            <Button nameButton={"My second button"} callBack={() => SecondButton("My second button")}/>
         </>
     );
 }

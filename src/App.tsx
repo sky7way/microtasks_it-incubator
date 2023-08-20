@@ -1,4 +1,4 @@
-import React, {MouseEvent} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import './App.css';
 import {Header} from "./Monday/1/Header";
 import {Body} from "./Monday/1/Body";
@@ -26,6 +26,16 @@ const students = [
     {id: 11, name: "Christopher", age: 100},
 ]
 
+const [money, setMoney] = useState([
+    { banknots: 'Dollars', value: 100, number: ' a1234567890' },
+    { banknots: 'Dollars', value: 50, number: ' z1234567890' },
+    { banknots: 'RUBLS', value: 100, number: ' w1234567890' },
+    { banknots: 'Dollars', value: 100, number: ' e1234567890' },
+    { banknots: 'Dollars', value: 50, number: ' c1234567890' },
+    { banknots: 'RUBLS', value: 100, number: ' r1234567890' },
+    { banknots: 'Dollars', value: 50, number: ' x1234567890' },
+    { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
+])
 
 function App() {
     const FirstButton = (sub: string, age: number) => {
@@ -35,14 +45,20 @@ function App() {
         console.log(sub)
     }
 
+    const StupidButton = () => {
+        console.log("I'm stupid button")
+    }
+
     return (
         <>
-            <Header titleForHeader={"New Header"}/>
-            <Body titleForBody={"New Body"}/>
-            <Footer titleForFooter={"New Footer"}/>
-            <MethodMap students={students} cars={topCars}/>
-            <Button nameButton={"My first button"} callBack={() => FirstButton("My first button", 37)}/>
-            <Button nameButton={"My second button"} callBack={() => SecondButton("My second button")}/>
+            {/*<Header titleForHeader={"New Header"}/>*/}
+            {/*<Body titleForBody={"New Body"}/>*/}
+            {/*<Footer titleForFooter={"New Footer"}/>*/}
+            {/*<MethodMap students={students} cars={topCars}/>*/}
+            {/*<Button nameButton={"My first button"} callBack={() => FirstButton("My first button", 37)}/>*/}
+            {/*<Button nameButton={"My second button"} callBack={() => SecondButton("My second button")}/>*/}
+            {/*<Button nameButton={"Stupid button"} callBack={StupidButton}/>*/}
+            
         </>
     );
 }

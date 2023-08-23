@@ -9,7 +9,7 @@ type MoneyType = {
 }
 
 export const Money = (props: MoneyPropsType) => {
-    const moneyList = props.money.map(el => {
+    const moneyListMap = props.money.map(el => {
             return(
               <li key={el.number}>
                   ---{el.banknots}, {el.value}, {el.number}---
@@ -18,6 +18,6 @@ export const Money = (props: MoneyPropsType) => {
         })
 
     return(
-        <ul>{moneyList}</ul>
+        <ul>{moneyListMap}</ul>
     );
 }

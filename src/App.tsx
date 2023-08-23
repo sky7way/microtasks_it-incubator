@@ -8,6 +8,8 @@ import {Button} from "./Monday/1/Button/Button";
 import {CountButton} from "./Monday/UseState/CountButton";
 import {FilterMoney} from "./Monday/Filter/FilterMoney";
 import {Money} from "./Monday/Filter/Money";
+import {Message} from "./Monday/Input/Message";
+import {Input} from "./Monday/Input/Input";
 
 type ButtonType = "plus" | "minus" | "null";
 type MoneyType = 'Dollars' | 'RUBLS' | 'All';
@@ -97,11 +99,13 @@ function App() {
             {/*<CountButton nameButton={"-"} callBack={() => onClickHandler("minus")}/>*/}
             {/*<CountButton nameButton={"0"} callBack={() => onClickHandler("null")}/>*/}
 
-            <Money money={currentMoney}/>
-            <FilterMoney nameButton={'Dollars'} filter={() =>filterMoney('RUBLS')}/>
-            <FilterMoney nameButton={'RUBLS'} filter={() => filterMoney('Dollars')}/>
-            <FilterMoney nameButton={'All'} filter={() => filterMoney('All')}/>
+            {/*<Money money={currentMoney}/>*/}
+            {/*<FilterMoney nameButton={'Dollars'} filter={() =>filterMoney('RUBLS')}/>*/}
+            {/*<FilterMoney nameButton={'RUBLS'} filter={() => filterMoney('Dollars')}/>*/}
+            {/*<FilterMoney nameButton={'All'} filter={() => filterMoney('All')}/>*/}
 
+            <Input />
+            <Message />
         </>
     );
 }

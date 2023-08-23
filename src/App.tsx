@@ -1,4 +1,4 @@
-import React, {MouseEvent, useState} from 'react';
+import React, {ChangeEvent, MouseEvent, useState} from 'react';
 import './App.css';
 import {Header} from "./Monday/1/Header";
 import {Body} from "./Monday/1/Body";
@@ -8,10 +8,10 @@ import {Button} from "./Monday/1/Button/Button";
 import {CountButton} from "./Monday/UseState/CountButton";
 import {FilterMoney} from "./Monday/Filter/FilterMoney";
 import {Money} from "./Monday/Filter/Money";
-import {Message} from "./Monday/Input/Message";
 import {Input} from "./Monday/Input/Input";
+import {Message} from "./Monday/Input/Message";
 
-type ButtonType = "plus" | "minus" | "null";
+type ButtonType = "plus" | "minus" | "null" | "+";
 type MoneyType = 'Dollars' | 'RUBLS' | 'All';
 
 
@@ -50,6 +50,7 @@ function App() {
         {banknots: 'RUBLS', value: 50, number: ' v1234567890'},
     ])
 
+
     const [filter, setFilter] = useState<MoneyType>('All')
 
     // const FirstButton = (sub: string, age: number) => {
@@ -83,6 +84,18 @@ function App() {
     }
 
 
+    const [title, setTitle] = useState('');
+    const [messages, setMessages] = useState<{ message: string }[]>([]);
+
+    const addMessage = (newMessage: string) => {
+        setMessages([{ message: newMessage }, ...messages]);
+    }
+
+    const onClickButtonHandler = () => {
+        addMessage(title);
+        setTitle('');
+    }
+
     return (
         <>
             {/*<Header titleForHeader={"New Header"}/>*/}
@@ -105,8 +118,8 @@ function App() {
             {/*<FilterMoney nameButton={'RUBLS'} filter={() => filterMoney('Dollars')}/>*/}
             {/*<FilterMoney nameButton={'All'} filter={() => filterMoney('All')}/>*/}
 
-
-            <Message />
+            <Input title={title} addMessage={addMessage} />
+            <Message messages={messages} />
         </>
     );
 }

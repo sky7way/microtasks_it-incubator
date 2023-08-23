@@ -1,25 +1,29 @@
-import {ChangeEvent, useState} from "react";
+// Input.tsx
+import React, {ChangeEvent, useState} from 'react';
+import {Button} from "../1/Button/Button";
 
 type InputPropsType = {
-    addMessage: (title: string) => void
+    title: string;
+    addMessage: (message: string) => void;
 }
 
 export const Input = (props: InputPropsType) => {
-    let [title, setTitle] = useState('');
+
+    const [inputValue, setInputValue] = useState(props.title);
 
     const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        setTitle(event.currentTarget.value)
+        setInputValue(event.currentTarget.value);
     }
 
-// const  onClickButtonHandler = () => {
-//     props.addMessage(title);
-//     setTitle('')
-// }
+    const onClickButtonInputHandler = () => {
+        props.addMessage(inputValue);
+        setInputValue('');
+    }
 
     return (
         <>
-        <input value={title} onChange={onChangeInputHandler}/>
-        {/*<button onClick={onClickButtonHandler}>+</button>*/}
+            <input value={inputValue} onChange={onChangeInputHandler} />
+            <Button nameButton={"+"} callBack={onClickButtonInputHandler} />
         </>
-    )
+    );
 }

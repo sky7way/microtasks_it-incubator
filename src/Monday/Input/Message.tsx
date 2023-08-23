@@ -1,27 +1,16 @@
-import React, {useState} from "react";
-import {Input} from "./Input";
-import {Button} from "./Button";
+// Message.tsx
+import React from 'react';
 
-export const Message = () => {
-    let [message, setMessage] = useState([
-        {message: 'message1'},
-        {message: 'message2'},
-        {message: 'message3'},
-    ])
+type MessagePropsType = {
+    messages: { message: string }[];
+}
 
-    const addMessage = (title: string) => {
-        let newMessage = {message: title};
-        setMessage([newMessage, ...message]);
-    }
-
+export const Message = (props: MessagePropsType) => {
     return (
-        <>
-        <Input addMessage={addMessage} />
         <div>
-            {message.map((el, index) => {
+            {props.messages.map((el, index) => {
                 return <div key={index}>{el.message}</div>
             })}
         </div>
-        </>
-    )
+    );
 }

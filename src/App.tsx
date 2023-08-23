@@ -82,6 +82,7 @@ function App() {
        return  setFilter(cur);
     }
 
+
     return (
         <>
             {/*<Header titleForHeader={"New Header"}/>*/}
@@ -104,7 +105,7 @@ function App() {
             {/*<FilterMoney nameButton={'RUBLS'} filter={() => filterMoney('Dollars')}/>*/}
             {/*<FilterMoney nameButton={'All'} filter={() => filterMoney('All')}/>*/}
 
-            <Input />
+
             <Message />
         </>
     );
